@@ -1,0 +1,6 @@
+{
+  "name": "Broadcast Design Telemetry Dashboard",
+  "description": "High-tech broadcast design telemetry HUD interface with interactive 3D globe, regional maps, sci-fi matrix data, and real-time audio visualizers matching reference image.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

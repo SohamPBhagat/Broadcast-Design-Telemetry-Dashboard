@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 15px rgba(255, 30, 60, 0.6), inset 0 0 10px rgba(255, 30, 60, 0.3);
+  }
+  .glow-red-text {
+    text-shadow: 0 0 8px rgba(255, 40, 70, 0.8), 0 0 18px rgba(255, 20, 50, 0.5);
+  }
+  .glow-red-sm {
+    box-shadow: 0 0 8px rgba(255, 30, 60, 0.4);
+  }
+  .glow-white-sm {
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+
+  .glow-green-sm {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  }
+
+  .hud-grid-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+    background-size: 12px 12px;
+  }
+
+  .hud-scanline {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0) 50%,
+      rgba(0, 0, 0, 0.35) 50%,
+      rgba(0, 0, 0, 0.35)
+    );
+    background-size: 100% 4px;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; transform: scale(0.98); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scan-line-move {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-radar {
+  animation: radar-sweep 12s linear infinite;
+}
+
+.animate-radar-reverse {
+  animation: radar-sweep 18s linear infinite reverse;
+}
+
+/* Custom range slider with theme-consistent HUD red glow styling */
+input[type="range"].hud-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #080d1a;
+  border: 1px solid rgba(225, 29, 72, 0.4);
+  border-radius: 3px;
+  height: 8px;
+  outline: none;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+input[type="range"].hud-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: radial-gradient(circle, #f43f5e 30%, #be123c 100%);
+  border: 1px solid #fecdd3;
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.9);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+input[type="range"].hud-slider::-webkit-slider-thumb:hover {
+  background: #f43f5e;
+  transform: scale(1.2);
+  box-shadow: 0 0 14px rgba(244, 63, 94, 1), 0 0 4px #ffffff;
+}
+
+/* Custom scrollbars for telemetry windows (Vertical up-down & Horizontal left-right) */
+* {
+  scrollbar-color: #e11d48 #060913;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04060c;
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e11d48 0%, #9f1239 100%);
+  border: 1px solid rgba(254, 205, 211, 0.6);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.9);
+}
+
+::-webkit-scrollbar-corner {
+  background: #04060c;
+}
+
